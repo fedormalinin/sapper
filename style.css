@@ -24,10 +24,12 @@ body {
 .board {
   display: inline-grid;
   padding: 10px;
-  grid-template-columns: repeat(var(--size) - 60px);
-  grid-template-rows: repeat(var(--size) - 60px);
+  grid-template-columns: repeat(var(--size), 60px);
+  grid-template-rows: repeat(var(--size), 60px);
   gap: 4px;
-  background-color: #808080;
+  background-color: #333333;
+  box-shadow: 0 0 25px black;
+  margin-top: 25px;
 }
 
 .board > * {
@@ -36,23 +38,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid blue;
+  color: white;
+  font-size: 32px;
   user-select: none;
 }
 
 .board > [data-status="hidden"] {
-  background-color: blue;
+  background-image: url("./src/img/grass.png");
+  background-size: contain;
   cursor: pointer;
 }
 
 .board > [data-status="mine"] {
-  background-color: red;
+  background-image: url("./src/img/tnt1.gif");
+  border: solid 3px red;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .board > [data-status="number"] {
   background-color: none;
+  background-image: url("./src/img/dirt.png");
+  background-size: contain;
 }
 
 .board > [data-status="marked"] {
-  background-color: yellow;
+  background-image: url("./src/img/flag.png");
+  background-size: contain;
 }
